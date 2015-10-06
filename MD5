@@ -1,0 +1,11 @@
+724ac863a801d57ea64320a08789e141 *DESCRIPTION
+42df8ff2b9ea453b2823fd3a44b3bb92 *NAMESPACE
+63f057d5ff828405872d8d58e2f83256 *NEWS
+f9201d3d78f8bb77fc6798bf6b10c4ec *R/assert-is-set.R
+66c48fc516f1911971d1e3d05de0c1a2 *R/imports.R
+9fb9f6a137f2b0d5e24749c153397901 *R/is-set.R
+7e82229e1d3ace8e8b1d9e592203c3d1 *README.md
+47a4b8b69e6f4311719f4b91d30df742 *man/is_set_equal.Rd
+838adaaf712c9e8d364a4f34f9bcfb6f *po/R-assertive.sets.pot
+d67b0182a5447a57355d768c56302e64 *tests/testthat.R
+001c894850e583ef9c93a7b85dbe051b *tests/testthat/test-is-set.R
