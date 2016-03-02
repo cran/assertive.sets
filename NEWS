@@ -1,1 +1,4 @@
+0.0-2 is_set_equal renamed as are_set_equal.
+      is_subset and is_superset gain a "strictly" argument.
+      Use of devtools in tests replaced with withr.
 0.0-1 Content extracted from assertive 0.3-0, and tidied.

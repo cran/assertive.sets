@@ -1,3 +1,8 @@
+[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active)
+[![Is the package on CRAN?](http://www.r-pkg.org/badges/version/assertive.sets)](http://www.r-pkg.org/pkg/assertive.sets)
+[![SemaphoreCI Build Status](https://semaphoreci.com/api/v1/projects/8f9d4316-ca97-419c-9a71-eed37e9b3165/635160/badge.svg)](https://semaphoreci.com/richierocks/assertive-sets)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/2d3nr6mxrbhiubxq?svg=true)](https://ci.appveyor.com/project/richierocks/assertive-sets)
+
 # assertive.sets
 
 A set of predicates and assertions for checking the properties of sets.  Most of the documentation is on the *[assertive](https://bitbucket.org/richierocks/assertive)* page.  End-users will usually want to use *assertive* directly.
