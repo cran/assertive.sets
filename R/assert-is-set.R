@@ -1,5 +1,35 @@
 #' @rdname are_set_equal
 #' @export
+assert_are_disjoint_sets <- function(x, y, 
+  severity = getOption("assertive.severity", "stop"))
+{
+  assert_engine(
+    are_disjoint_sets, 
+    x, 
+    y = y, 
+    .xname = get_name_in_parent(x), 
+    .yname = get_name_in_parent(y),
+    severity = severity
+  )
+}
+
+#' @rdname are_set_equal
+#' @export
+assert_are_intersecting_sets <- function(x, y, 
+  severity = getOption("assertive.severity", "stop"))
+{
+  assert_engine(
+    are_intersecting_sets, 
+    x, 
+    y = y, 
+    .xname = get_name_in_parent(x), 
+    .yname = get_name_in_parent(y),
+    severity = severity
+  )
+}
+
+#' @rdname are_set_equal
+#' @export
 assert_are_set_equal <- function(x, y, 
   severity = getOption("assertive.severity", "stop"))
 {

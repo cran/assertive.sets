@@ -1,3 +1,45 @@
+#' @rdname are_set_equal
+#' @export
+are_disjoint_sets <- function(x, y, .xname = get_name_in_parent(x), .yname = get_name_in_parent(y))
+{
+  intersectionxy <- intersect(x, y)
+  if(length(intersectionxy) > 0)
+  {
+    return(
+      false(
+        gettext(
+          "%s and %s have common elements: %s."
+        ), 
+        .xname, 
+        .yname,
+        toString(intersectionxy, width = 100)
+      )
+    )
+  }
+  TRUE
+}
+
+#' @rdname are_set_equal
+#' @export
+are_intersecting_sets <- function(x, y, .xname = get_name_in_parent(x), .yname = get_name_in_parent(y))
+{
+  intersectionxy <- intersect(x, y)
+  if(length(intersectionxy) == 0)
+  {
+    return(
+      false(
+        gettext(
+          "%s and %s have no common elements."
+        ), 
+        .xname, 
+        .yname
+      )
+    )
+  }
+  TRUE
+}
+
+
 #' Set comparisons
 #' 
 #' Checks on the contents of two vectors (ignoring the order of the elements).
@@ -11,15 +53,17 @@
 #' Either \code{"stop"}, \code{"warning"}, \code{"message"}, or \code{"none"}.
 #' @return The \code{is_*} functions return \code{TRUE} or \code{FALSE}.
 #' The \code{assert_*} functions throw an error in the event of failure.
-#' @seealso \code{\link{is_subset}}, \code{\link[base]{sets}}, 
-#' \code{\link[sets]{set_is_equal}}
+#' @seealso \code{\link[base]{sets}}, \code{\link[sets]{set_is_equal}}
 #' @examples
 #' # Same contents, different order, returns TRUE
 #' are_set_equal(1:5, 5:1)
+#' 
 #' # Different lengths
 #' are_set_equal(1:5, 1:6)
+#' 
 #' # First vector contains values not in second vector
 #' are_set_equal(1:5, c(1:4, 4))
+#' 
 #' # Second vector contains values not in first vector
 #' are_set_equal(c(1:4, 4), 1:5)
 #' 
@@ -34,6 +78,10 @@
 #' # The strictly argument checks for a strict sub/superset
 #' is_subset(1:5, 1:5, strictly = TRUE)
 #' is_superset(1:5, 1:5, strictly = TRUE)
+#' 
+#' # Do x and y have common elements?
+#' are_intersecting_sets(1:4, 3:6)
+#' are_disjoint_sets(1:4, 3:6)
 #' 
 #' # Types are coerced to be the same, as per base::setdiff
 #' are_set_equal(1:4, c("4", "3", "2", "1"))
@@ -103,7 +151,7 @@ is_subset <- function(x, y, strictly = FALSE, .xname = get_name_in_parent(x), .y
           "The element %s in %s is not in %s.", 
           "The elements %s in %s are not in %s."
         ),
-        toString(sQuote(diffxy), 100),
+        toString(sQuote(diffxy), width = 100),
         .xname,
         .yname
       )

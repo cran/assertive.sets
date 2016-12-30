@@ -1,4 +1,48 @@
 test_that(
+  "test are_disjoint_sets with disjoint sets returns true",  
+  {
+    x <- 1:5
+    y <- 6:10
+    expect_true(are_disjoint_sets(x, y))
+  }
+)
+
+test_that(
+  "test are_disjoint_sets with intersecting sets returns false",  
+  {
+    x <- 1:5
+    expect_false(actual <- are_disjoint_sets(x, 4:8))
+    expect_match(
+      cause(actual),
+      noquote("x and 4:8 have common elements: 4, 5")
+    )
+  }
+)
+
+test_that(
+  "test are_intersecting_sets with intersecting sets returns true",  
+  {
+    x <- 1:5
+    y <- 5:9
+    expect_true(are_intersecting_sets(x, y))
+  }
+)
+
+test_that(
+  "test are_intersecting_sets with disjoint sets returns false",  
+  {
+    x <- 1:5
+    expect_false(actual <- are_intersecting_sets(x, 6:10))
+    expect_match(
+      cause(actual),
+      noquote("x and 6:10 have no common elements")
+    )
+  }
+)
+
+
+
+test_that(
   "test are_set_equal with equal sets returns true",  
   {
     x <- 1:5
@@ -13,9 +57,9 @@ test_that(
     x <- 1:5
     y <- c(1:4, 4)
     expect_false(actual <- are_set_equal(x, y))
-    expect_equal(
+    expect_match(
       cause(actual),
-      noquote("1:5 and c(1, 2, 3, 4) have different numbers of elements (5 versus 4).")
+      "1:5 and c\\(1, 2, 3, 4\\) have different numbers of elements \\(5 versus 4\\)"
     )
   }
 )
@@ -29,9 +73,9 @@ test_that(
     # R is doing something odd with references to variable names, so the
     # cause isn't "The element '1' in x is not in y."
     # Using force() doesn't seem to make a difference.
-    expect_equal(
+    expect_match(
       cause(actual),
-      noquote("The element '1' in 1:5 is not in c(99, 3, 5, 4, 2).")
+      noquote("The element .+1.+ in 1:5 is not in c\\(99, 3, 5, 4, 2\\)")
     )
   }
 )
@@ -67,9 +111,9 @@ test_that(
     x <- 1:5
     y <- 4:1
     expect_false(actual <- is_subset(x, y))
-    expect_equal(
+    expect_match(
       cause(actual),
-      noquote("The element '5' in x is not in y.")
+      noquote("The element .+5.+ in x is not in y")
     )
   }
 )
@@ -105,9 +149,9 @@ test_that(
     x <- 1:4
     y <- 5:1
     expect_false(actual <- is_superset(x, y))
-    expect_equal(
+    expect_match(
       cause(actual),
-      noquote("The element '5' in y is not in x.")
+      "The element .+5.+ in y is not in x"
     )
   }
 )

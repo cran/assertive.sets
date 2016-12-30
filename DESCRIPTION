@@ -1,8 +1,8 @@
 Package: assertive.sets
 Type: Package
 Title: Assertions to Check Properties of Sets
-Version: 0.0-2
-Date: 2016-03-02
+Version: 0.0-3
+Date: 2016-12-30
 Author: Richard Cotton [aut, cre]
 Maintainer: Richard Cotton <richierocks@gmail.com>
 Authors@R: person("Richard", "Cotton", role = c("aut", "cre"), email =
@@ -14,8 +14,8 @@ Description: A set of predicates and assertions for checking the properties of
 URL: https://bitbucket.org/richierocks/assertive.sets
 BugReports: https://bitbucket.org/richierocks/assertive.sets/issues
 Depends: R (>= 3.0.0)
-Imports: assertive.base (>= 0.0-2)
-Suggests: testthat, withr
+Imports: assertive.base (>= 0.0-7)
+Suggests: testthat
 License: GPL (>= 3)
 LazyLoad: yes
 LazyData: yes
@@ -26,6 +26,6 @@ Acknowledgments: Development of this package was partially funded by
         Foundation.
 RoxygenNote: 5.0.1
 NeedsCompilation: no
-Packaged: 2016-03-02 18:24:26 UTC; richie
+Packaged: 2016-12-30 18:02:45 UTC; richierocks
 Repository: CRAN
-Date/Publication: 2016-03-02 23:33:36
+Date/Publication: 2016-12-30 19:35:49
